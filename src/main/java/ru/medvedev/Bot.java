@@ -19,6 +19,12 @@ public class Bot extends TelegramLongPollingBot {
     @Setter
     @Getter
     String token;
+
+    public Bot(String userName, String token) {
+        this.userName = userName;
+        this.token = token;
+    }
+
     @Override
     public void onUpdateReceived(Update update) {
         LOGGER.debug("new Update recieve");
