@@ -14,7 +14,13 @@ public class Messages {
                                       "/links - полезные ссылки\n";
     public static String adminString = "@mskalco";
     public static String weekString = "Скоро!";
-    public static String linksString = "Скоро будут ссылочки!";
+    public static String linksString = "https://rufso.ru/ - ФСО РФ\n" +
+                                       "http://moscompass.ru/mosmeridian/ - Московский меридиан(сайт)\n" +
+                                       "https://vk.com/meridianofmoscow - Московский меридиан(группа ВКонтакте)\n" +
+                                       "http://www.moscompass.ru/news/ - Лесные новости\n" +
+                                       "https://vk.com/moscow_orienteering - Массовые старты по " +
+                                                                                "ориентированию в Москве\n" +
+                                       "http://o-mephi.net/ - Портал секции спортивного ориентирования МИФИ\n";
 
 
 }
