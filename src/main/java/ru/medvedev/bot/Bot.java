@@ -10,6 +10,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
+import static ru.medvedev.bot.Messages.*;
+
+
 public class Bot extends TelegramLongPollingBot {
     private static final Logger LOGGER = Logger.getLogger(Bot.class);
     final int RECONNECT_PAUSE = 10000;
@@ -26,20 +29,11 @@ public class Bot extends TelegramLongPollingBot {
         this.userName = userName;
         this.token = token;
     }
-    private void startMessage(Long chatId){
+    private void message(String typeOfMessage, Long chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
-        message.setText("Hello. This is start message");
-        try {
-            execute(message);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-    private void weekStarts(Long chatId){
-        SendMessage message = new SendMessage();
-        message.setChatId(chatId);
-        message.setText("Hello. This is weekStart message");
+        //message.setText(infoMessage());
+        message.setText(typeOfMessage);
         try {
             execute(message);
         } catch (TelegramApiException e) {
@@ -54,11 +48,21 @@ public class Bot extends TelegramLongPollingBot {
         Long chatId = update.getMessage().getChatId();
         String inputText = update.getMessage().getText();
         if (inputText.startsWith("/start")) {
-            startMessage(chatId);
+            message(startString,chatId);
+        }
+        if (inputText.startsWith("/help")) {
+            message(helpString, chatId);
+        }
+        if (inputText.startsWith("/admin")) {
+            message(adminString, chatId);
         }
         if (inputText.startsWith("/week")) {
-            weekStarts(chatId);
+            message(weekString, chatId);
         }
+        if (inputText.startsWith("/links")) {
+            message(linksString, chatId);
+        }
+
     }
 
     @Override

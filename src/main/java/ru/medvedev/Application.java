@@ -1,7 +1,7 @@
 package ru.medvedev;
 
-import org.springframework.context.ApplicationContextInitializer;
 import org.telegram.telegrambots.ApiContextInitializer;
+import ru.medvedev.bot.Bot;
 
 import java.util.logging.Logger;
 
